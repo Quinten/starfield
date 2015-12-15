@@ -7,8 +7,17 @@
 <canvas />
 <script>
     // distilled and restyled from http://www.kevs3d.co.uk/dev/warpfield/index-original.html
-    D=document;d=D.body.style;d.margin=0;d.overflow="hidden";
-    c=window,d=c.innerWidth,e=c.innerHeight,g=D.body.children[0],i=d/2,j=e/2;
+
+    D=document;
+    d=document.body.style;
+    document.body.style.margin=0;
+    document.body.style.overflow="hidden";
+    c=window;
+    d=window.innerWidth;
+    e=window.innerHeight;
+    g=document.body.children[0];
+    i=d/2;
+    j=e/2;
     g.width=d;g.height=e;k=g.getContext("2d");
     k.fillStyle="#000";k.strokeStyle="#fff";k.globalAlpha=0.3;
     l=Math,m=l.random,n=l.sin,o=l.floor,p=10,q=[],r=0,s=0.185,V=500;
