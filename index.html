@@ -19,12 +19,12 @@ ngn.setup = function () {
 
     document.body.style.margin = 0;
     document.body.style.overflow = "hidden";
-    d = window.innerWidth;
+    var w = window.innerWidth;
     e = window.innerHeight;
     var cnvs = document.body.children[0];
-    i = d/2;
+    i = w/2;
     j = e/2;
-    cnvs.width = d;
+    cnvs.width = w;
     cnvs.height = e;
     var ctx = cnvs.getContext("2d");
     ctx.fillStyle = "#000";
@@ -33,16 +33,18 @@ ngn.setup = function () {
 
     l=Math,m=l.random,n=l.sin,o=l.floor,p=10,q=[],r=0,s=0.185,V=500;
     function u(a){
-      a.x=(m()*d-d*0.5)*p;
+      a.x=(m()*w-w*0.5)*p;
       a.y=(m()*e-e*0.5)*p;
       a.a=p;a.b=0;a.c=0
     }
-    for(var v=0,w;v<V;v++){
-      w={};u(w);q.push(w)
+    for(var v=0,star;v<V;v++){
+        star={};
+        u(star);
+        q.push(star);
     }
     setInterval(function(){ 
-        ctx.fillRect(0,0,d,e);
-        for(a=i-d/2+d/2,f=j-e/2+e/2,h=0;h<V;h++){
+        ctx.fillRect(0,0,w,e);
+        for(a=i-w/2+w/2,f=j-e/2+e/2,h=0;h<V;h++){
             b=q[h],x=b.x/b.a,y=b.y/b.a;
             if(b.b!=0){
                 ctx.beginPath();
@@ -51,7 +53,7 @@ ngn.setup = function () {
                 ctx.stroke()
             }
             b.b=x;b.c=y;b.a-=s;
-            if(b.a<s||b.b>d||b.c>e){
+            if(b.a<s||b.b>w||b.c>e){
                 u(b);
             }
         }
