@@ -2,6 +2,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Starfield</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+    </style>
 </head>
 <body>
 <canvas />
@@ -16,9 +23,6 @@ ngn.setup = function () {
         setTimeout(ngn.setup, 500);
         return;
     }
-
-    document.body.style.margin = 0;
-    document.body.style.overflow = "hidden";
 
     var w = window.innerWidth;
     var h = window.innerHeight;
