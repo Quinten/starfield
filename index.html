@@ -22,6 +22,8 @@ ngn.setup = function () {
 
     var w = window.innerWidth;
     var h = window.innerHeight;
+    var cw = w/2;
+    var ch = ch/2;
 
     var cnvs = document.body.children[0];
     cnvs.width = w;
@@ -44,13 +46,13 @@ ngn.setup = function () {
         q.push(star);
     }
     setInterval(function(){ 
-        ctx.fillRect(0,0,w,h);
-        for(a=w/2,f=h/2,i=0; i < V; i++){
+        ctx.fillRect(0, 0, w, h);
+        for(i = 0; i < V; i++){
             b=q[i],x=b.x/b.a,y=b.y/b.a;
             if(b.b!=0){
                 ctx.beginPath();
-                ctx.moveTo(x+a,y+f);
-                ctx.lineTo(b.b+a,b.c+f);
+                ctx.moveTo((x + cw) , (y + ch));
+                ctx.lineTo((b.b + cw), (b.c + ch));
                 ctx.stroke()
             }
             b.b=x;b.c=y;b.a-=s;
