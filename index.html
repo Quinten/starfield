@@ -37,10 +37,10 @@ ngn.setup = function () {
     ctx.strokeStyle = "#fff";
     ctx.globalAlpha = 0.3;
 
-    l=Math,m=l.random,n=l.sin,o=l.floor,p=10,q=[],r=0,s=0.185,V=500;
+    p=10,q=[],r=0,s=0.185,V=500;
     function u(a){
-      a.x=(m()*w-w*0.5)*p;
-      a.y=(m()*h-h*0.5)*p;
+      a.x=(Math.random()*w-w*0.5)*p;
+      a.y=(Math.random()*h-h*0.5)*p;
       a.a=p;a.b=0;a.c=0
     }
     for(var i=0,star;i<V;i++){
