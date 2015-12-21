@@ -39,9 +39,11 @@ ngn.setup = function () {
 
     p=10,q=[],r=0,s=0.185,V=500;
     function u(a){
-      a.x=(Math.random()*w-w*0.5)*p;
-      a.y=(Math.random()*h-h*0.5)*p;
-      a.a=p;a.b=0;a.c=0
+      a.x = (Math.random() - 0.5) * w * p;
+      a.y = (Math.random() - 0.5) * h * p;
+      a.a = p;
+      a.b = 0;
+      a.c = 0;
     }
     for(var i=0,star;i<V;i++){
         star={};
