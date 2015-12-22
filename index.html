@@ -35,13 +35,15 @@ ngn.setup = function () {
     var ctx = cnvs.getContext("2d");
     ctx.fillStyle = "#000";
     ctx.strokeStyle = "#fff";
-    ctx.globalAlpha = 0.3;
+    ctx.globalAlpha = 0.5;
+
+    ctx.translate(cw, ch);
 
     var p = 10;
     var s = 0.185;
 
     var starsArr = [];
-    var numStars = 500;
+    var numStars = 256;
 
     function recycle(star) {
       star.x = (Math.random() - 0.5) * w * p;
@@ -59,7 +61,7 @@ ngn.setup = function () {
 
     setInterval(function() {
 
-        ctx.fillRect(0, 0, w, h);
+        ctx.fillRect(-cw, -ch, w, h);
 
         for (i = 0; i < numStars; i++) {
 
@@ -69,8 +71,8 @@ ngn.setup = function () {
 
             if (star.b != 0) {
                 ctx.beginPath();
-                ctx.moveTo((x + cw), (y + ch));
-                ctx.lineTo((star.b + cw), (star.c + ch));
+                ctx.moveTo(x, y);
+                ctx.lineTo(star.b, star.c);
                 ctx.stroke();
             }
 
@@ -78,11 +80,11 @@ ngn.setup = function () {
             star.c = y;
             star.a -= s;
 
-            if ( star.a < s || star.b > w || star.c > h) {
+            if ( star.a < s || star.b > cw || star.c > ch || star.b < -cw || star.c < -ch ) {
                 recycle(star);
             }
         }
-    }, 25);
+    }, 17);
 }
 
 if (document.readyState === 'complete') {
