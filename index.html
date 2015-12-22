@@ -15,6 +15,16 @@
 <canvas>Be among the stars and download a browser that supports canvas.</canvas>
 <script>
 
+if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = (window.webkitRequestAnimationFrame ||
+                                    window.mozRequestAnimationFrame ||
+                                    window.msRequestAnimationFrame ||
+                                    window.oRequestAnimationFrame ||
+                                    function (callback) {
+                                        return window.setTimeout(callback, 17);
+                                    });
+}
+
 var ngn = {};
 ngn.setup = function () {
 
@@ -59,7 +69,9 @@ ngn.setup = function () {
         starsArr.push(star);
     }
 
-    setInterval(function() {
+    (function onF (){
+
+        window.requestAnimationFrame(onF, cnvs);
 
         ctx.fillRect(-cw, -ch, w, h);
 
@@ -84,7 +96,8 @@ ngn.setup = function () {
                 recycle(star);
             }
         }
-    }, 17);
+
+    }());// end animation loop
 }
 
 if (document.readyState === 'complete') {
