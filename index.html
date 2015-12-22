@@ -38,7 +38,7 @@ ngn.setup = function () {
     ctx.globalAlpha = 0.3;
 
     p=10,q=[],s=0.185,V=500;
-    function u(a){
+    function recycle(a){
       a.x = (Math.random() - 0.5) * w * p;
       a.y = (Math.random() - 0.5) * h * p;
       a.a = p;
@@ -47,7 +47,7 @@ ngn.setup = function () {
     }
     for(var i=0,star;i<V;i++){
         star={};
-        u(star);
+        recycle(star);
         q.push(star);
     }
     setInterval(function(){ 
@@ -62,7 +62,7 @@ ngn.setup = function () {
             }
             b.b=x;b.c=y;b.a-=s;
             if(b.a<s||b.b>w||b.c>h){
-                u(b);
+                recycle(b);
             }
         }
     }, 25);
